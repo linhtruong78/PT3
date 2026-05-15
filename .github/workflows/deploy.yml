@@ -41,13 +41,16 @@ jobs:
           node-version: 22 # current LTS — the version used to build the site
           cache: npm
 
-      - name: Install dependencies
-        # We use `npm install` (not `npm ci`) because of a long-standing npm bug
-        # where platform-specific optional dependencies (Rollup's native binaries)
-        # don't resolve correctly when the lockfile was generated on a different
-        # OS than the CI runner. See: https://github.com/npm/cli/issues/4828
-        # `npm install` re-resolves and picks the correct Linux binary for Vite.
-        run: npm install --no-audit --no-fund
+      - name: Install dependencies (fresh resolve)
+        # We delete the lockfile and node_modules before installing because of
+        # a long-standing npm bug where platform-specific optional dependencies
+        # (Rollup's native binaries: @rollup/rollup-linux-x64-gnu vs the
+        # win32-x64-msvc variant baked into a Windows-generated lockfile) don't
+        # resolve correctly on a different-OS runner. The error message itself
+        # recommends this workaround. See: https://github.com/npm/cli/issues/4828
+        run: |
+          rm -rf node_modules package-lock.json
+          npm install --no-audit --no-fund
 
       - name: Build
         env:
