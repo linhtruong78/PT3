@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { useLanguage } from '../i18n/LanguageContext.jsx';
 import LanguageSwitcher from './LanguageSwitcher.jsx';
+import { withBase } from '../utils/asset.js';
 
 /**
  * Navbar
@@ -51,7 +52,7 @@ export default function Navbar() {
         {/* Brand crest (left) */}
         <Link to="/" className="flex shrink-0 items-center" aria-label="PT3 Global Royal">
           <img
-            src="/brand/logo-crest.png"
+            src={withBase("/brand/logo-crest.png")}
             alt="PT3 Global Royal"
             className="h-16 w-auto object-contain sm:h-20 md:h-24 lg:h-28"
             loading="eager"

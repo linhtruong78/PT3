@@ -3,6 +3,7 @@ import { useLanguage } from '../i18n/LanguageContext.jsx';
 import Reveal from '../components/Reveal.jsx';
 import SectionHeading from '../components/SectionHeading.jsx';
 import LocationsBlock from '../components/LocationsBlock.jsx';
+import { withBase } from '../utils/asset.js';
 
 export default function About() {
   const { t } = useLanguage();
@@ -129,7 +130,7 @@ export default function About() {
           <Reveal>
             <div className="inline-block overflow-hidden border border-gold/30 shadow-cinematic">
               <img
-                src="/brand/ambassador.jpeg"
+                src={withBase("/brand/ambassador.jpeg")}
                 alt="PT3 Global Royal — A legacy in every sip"
                 loading="lazy"
                 className="block max-h-[75vh] w-auto max-w-full md:max-h-[95vh] lg:max-h-[110vh] xl:max-h-[130vh]"

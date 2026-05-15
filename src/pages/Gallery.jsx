@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { withBase } from '../utils/asset.js';
 import { useLanguage } from '../i18n/LanguageContext.jsx';
 import { PRODUCTS } from '../data/products.js';
 import Reveal from '../components/Reveal.jsx';
@@ -59,7 +60,7 @@ export default function Gallery() {
                   className="group relative block w-full overflow-hidden border border-gold/20 transition-all hover:border-gold/60 hover:shadow-gold-soft"
                 >
                   <img
-                    src={it.src}
+                    src={withBase(it.src)}
                     alt={it.caption}
                     loading="lazy"
                     className="block h-auto w-full transition-transform duration-700 group-hover:scale-105"
@@ -119,7 +120,7 @@ export default function Gallery() {
 
           <figure onClick={(e) => e.stopPropagation()} className="relative max-h-[90vh] max-w-[90vw]">
             <img
-              src={items[active].src}
+              src={withBase(items[active].src)}
               alt={items[active].caption}
               className="block max-h-[88vh] max-w-[90vw] border border-gold/30 object-contain shadow-cinematic"
             />

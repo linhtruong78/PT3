@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../i18n/LanguageContext.jsx';
 import { PRODUCTS } from '../data/products.js';
+import { withBase } from '../utils/asset.js';
 
 /**
  * Footer
@@ -35,7 +36,7 @@ export default function Footer() {
         <div className="md:col-span-4">
           <Link to="/" className="inline-flex flex-col items-start" aria-label="PT3 Global Royal">
             <img
-              src="/brand/logo-crest.png"
+              src={withBase("/brand/logo-crest.png")}
               alt="PT3 Global Royal"
               className="h-28 w-auto object-contain"
               loading="lazy"

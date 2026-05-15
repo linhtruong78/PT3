@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useLanguage } from '../i18n/LanguageContext.jsx';
+import { withBase } from '../utils/asset.js';
 
 /**
  * Promo — vertical 9:16 cinematic brand reel (real MP4).
@@ -39,8 +40,8 @@ export default function Promo() {
       <div className="relative aspect-[9/16] w-full max-h-[100svh] max-w-[480px] overflow-hidden border border-gold/30 bg-matte-black shadow-cinematic">
         <video
           ref={videoRef}
-          src="/promo/reel.mp4"
-          poster="/promo/reel-poster.jpg"
+          src={withBase("/promo/reel.mp4")}
+          poster={withBase("/promo/reel-poster.jpg")}
           autoPlay
           muted={muted}
           loop
@@ -87,7 +88,7 @@ export default function Promo() {
         </p>
 
         <a
-          href="/promo/reel.mp4"
+          href={withBase("/promo/reel.mp4")}
           download="PT3_promo_reel_9x16.mp4"
           className="btn-gold mt-4 inline-flex items-center justify-center gap-2"
         >
@@ -108,7 +109,7 @@ export default function Promo() {
 
       {/* Mobile-only download button */}
       <a
-        href="/promo/reel.mp4"
+        href={withBase("/promo/reel.mp4")}
         download="PT3_promo_reel_9x16.mp4"
         className="fixed bottom-6 right-6 z-30 flex h-12 w-12 items-center justify-center border border-gold/40 bg-matte-black/90 text-gold backdrop-blur transition-all hover:bg-gold hover:text-matte-black lg:hidden"
         aria-label="Download reel"

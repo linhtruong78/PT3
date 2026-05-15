@@ -1,4 +1,5 @@
 import { useLanguage } from '../i18n/LanguageContext.jsx';
+import { withBase } from '../utils/asset.js';
 
 /**
  * ProductVisual
@@ -52,7 +53,7 @@ export default function ProductVisual({ product, size = 'card' }) {
 
       {hasImage ? (
         <img
-          src={product.image}
+          src={withBase(product.image)}
           alt={`${product.name?.[lang] || product.name?.en} — ${product.type?.[lang] || product.type?.en}`}
           loading="lazy"
           className="absolute inset-0 h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105"

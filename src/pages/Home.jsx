@@ -6,6 +6,7 @@ import SectionHeading from '../components/SectionHeading.jsx';
 import ProductSlider from '../components/ProductSlider.jsx';
 import InstagramGrid from '../components/InstagramGrid.jsx';
 import LocationsBlock from '../components/LocationsBlock.jsx';
+import { withBase } from '../utils/asset.js';
 
 export default function Home() {
   const { t } = useLanguage();
@@ -109,7 +110,7 @@ export default function Home() {
           <Reveal>
             <div className="inline-block overflow-hidden border border-gold/30 shadow-cinematic">
               <img
-                src="/brand/collection-hero.jpeg"
+                src={withBase("/brand/collection-hero.jpeg")}
                 alt="The PT3 Global Royal collection"
                 loading="lazy"
                 className="block max-h-[75vh] w-auto max-w-full md:max-h-[95vh] lg:max-h-[110vh] xl:max-h-[130vh]"
