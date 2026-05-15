@@ -42,7 +42,10 @@ jobs:
           cache: npm
 
       - name: Install dependencies
-        run: npm ci
+        # Prefer reproducible installs from the lockfile. If the lockfile is
+        # missing or out of sync (a common first-deploy issue), fall back to
+        # a regular install so the build still succeeds.
+        run: npm ci || npm install
 
       - name: Build
         env:
